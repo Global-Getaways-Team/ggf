@@ -1,21 +1,38 @@
-<header class="header flex align-items-center justify-content-sb">
-	<a href="index.html">
+<script lang="ts">
+	type Link = {
+		href: string;
+		text: string;
+	};
+
+	const links: Link[] = [
+		{
+			href: '/blog',
+			text: 'Blogbeiträge'
+		},
+		{
+			href: '/about',
+			text: 'Über uns'
+		}
+	];
+</script>
+
+<header class="flex items-center justify-between mt-10">
+	<a href="/">
 		<img
 			class="main-logo"
 			width="150"
 			height="150"
-			src="../assets/logo.png"
+			src="/images/logo.png"
 			alt="Das Logo von global-getaways"
 		/>
 	</a>
-	<nav class="nav">
-		<ul class="none-bullet flex">
-			<li>
-				<a href="blog.html">Blogbeiträge</a>
-			</li>
-			<li>
-				<a href="about.html">Über uns</a>
-			</li>
+	<nav class="na">
+		<ul class="flex">
+			{#each links as link (link.href)}
+				<li class="ml-10">
+					<a href={link.href}> {link.text} </a>
+				</li>
+			{/each}
 		</ul>
 	</nav>
 </header>

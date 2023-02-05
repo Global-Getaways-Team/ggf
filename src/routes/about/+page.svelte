@@ -1,26 +1,34 @@
-<svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
-</svelte:head>
+<script lang="ts">
+	type Section = {
+		title: string;
+		body: string;
+	};
 
-<div class="text-column">
-	<h1>About this app</h1>
+	const sections: Section[] = [
+		{
+			title: 'Wer sind wir?',
+			body: `Hallo, wir sind die HaWaRieties! HWR-Studenten, die in ihren Ferien zu viele Orte besucht
+			haben. Wenn du mehr über uns und unsere Nutzer wissen möchtest, dann empfehlen wir dir, die
+			<a href="/blog">Blogbeiträge</a> zu lesen.`
+		},
+		{
+			title: 'Warum ist diese Webseite entstanden?',
+			body: `Diese Webseite ist entstanden, weil wir in unserem Informatik Studium ein Projekt ausgewählt
+			haben um Menschen von dem Computer wegzubewegen in die große weite Welt, damit diese die
+			verschiedenen Kulturen und Orte kennenlernen. Mit unseren vielen Reisen die wir bereits hinter
+			uns haben, haben wir uns dazu berufen gesehen genau dieses Projekt zu implementieren und
+			unsere Erfahrung mit den verschiedenen Kulturen zu teilen, damit die Nutzer eine
+			Inspirationsquelle haben. Also fühl dich frei und erkunde unsere
+			<a href="/blog">Blogliste</a>.`
+		}
+	];
+</script>
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
-</div>
+<section class="">
+	{#each sections as section (section.title)}
+		<article class="sec-{section.title} mt-10">
+			<h2>{section.title}</h2>
+			<p>{@html section.body}</p>
+		</article>
+	{/each}
+</section>
