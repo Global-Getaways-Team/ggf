@@ -8,10 +8,7 @@
 	<div class="app">
 		<Header />
 
-		<main>
-			<slot />
-		</main>
-
+		<slot />
 		<Footer />
 	</div>
 </div>
@@ -30,7 +27,6 @@
 			'header'
 			'main'
 			'footer';
-
 		width: 80%;
 	}
 </style>

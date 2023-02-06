@@ -13,7 +13,13 @@
         <a href="/html/blog.html">die verschiedenen Blogs</a> an.`
 		}
 	];
+
 </script>
+
+<svelte:head>
+	<title>Global Getaways</title>
+	<meta name="description" content="die homepage der global-getaways" />
+</svelte:head>
 
 <section class="">
 	{#each sections as section (section.title)}

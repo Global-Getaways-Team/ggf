@@ -24,6 +24,11 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Über uns</title>
+	<meta name="description" content="Die Blogbeiträge der global-getways" />
+</svelte:head>
+
 <section class="">
 	{#each sections as section (section.title)}
 		<article class="sec-{section.title} mt-10">
