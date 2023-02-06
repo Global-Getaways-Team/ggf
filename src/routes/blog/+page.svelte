@@ -41,14 +41,21 @@
 			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
 		},
 		{
-			title: 'Sollte man nach Rom reisen?',
+			title: 'Sollte man nach Zürich reisen?',
 			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
 			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
 			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
 			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
 		},
 		{
-			title: 'Sollte man nach Rom reisen?',
+			title: 'Sollte man nach Marseille reisen?',
+			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
+			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
+			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
+			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
+		},
+		{
+			title: 'Sollte man nach Barcelona reisen?',
 			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
 			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
 			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
@@ -62,11 +69,19 @@
 	<meta name="description" content="Die Blogbeiträge der global-getways" />
 </svelte:head>
 
-<main class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]">
-	{#each blogs as blog (blog.title)}
-		<section class="mt-10 w-64">
-			<h3>{blog.title}</h3>
-			<article class="mt-2">{blog.content}</article>
-		</section>
-	{/each}
+<main>
+	<nav class="flex flex-wrap list-none gap-2">
+		{#each blogs as blog, i}
+			<li class={i > 0 ? 'ml-3' : ''}>{blog.title}</li>
+		{/each}
+	</nav>
+
+	<div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]">
+		{#each blogs as blog}
+			<section class="mt-10 w-64">
+				<h3>{blog.title}</h3>
+				<article class="mt-2">{blog.content}</article>
+			</section>
+		{/each}
+	</div>
 </main>
