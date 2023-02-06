@@ -3,24 +3,13 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="mt-10">
-	<h1>About this app</h1>
-
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
-</div>
+<section class="mt-10">
+	<h3>Sollte man nach Österreich reisen?</h3>
+	<article class="mt-2">
+		Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
+		aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
+		dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
+		Fahrradtour. Meiner Meinung nach bietet Östereich für
+		<i>jeden</i> eine Möglichkeit sich <b>auszuleben</b> und ist auf jeden Fall eine Reise wert.
+	</article>
+</section>

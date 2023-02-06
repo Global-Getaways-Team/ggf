@@ -18,13 +18,7 @@
 
 <header class="flex items-center justify-between mt-10">
 	<a href="/">
-		<img
-			class="main-logo"
-			width="150"
-			height="150"
-			src="/images/logo.png"
-			alt="Das Logo von global-getaways"
-		/>
+		<img width="150" height="150" src="/images/logo.png" alt="Das Logo von global-getaways" />
 	</a>
 	<nav class="na">
 		<ul class="flex">

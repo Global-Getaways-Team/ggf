@@ -17,18 +17,17 @@
 
 <section class="">
 	{#each sections as section (section.title)}
-		<article class="sec-{section.title} mt-10">
+		<article class="mt-10">
 			<h2>{section.title}</h2>
 			<p>{@html section.body}</p>
 		</article>
 	{/each}
 </section>
 
-<section class="subscription mt-10">
+<section class="mt-10">
 	<h2>Melde dich direkt hier an, um nichts mehr zu verpassen!</h2>
-	<form class="mt-5">
-		<i class="fa fa-envelope" />
-		<input type="email" id="email" placeholder="hwr@outlook.de" class="border rounded" />
-		<button type="submit">Subscribe</button>
+	<form class="mt-5 flex items-center">
+		<input type="email" id="email" placeholder="test@outlook.de" class="border rounded" />
+		<button type="submit" class="ml-2">Subscribe</button>
 	</form>
 </section>
