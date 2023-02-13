@@ -289,7 +289,7 @@
                     </a>
                     <ul class="submenu2">
                         <li>
-                            <a href="/continent/africa/country">
+                            <a href="/country">
                                 <Icon class="inline-block" icon={outlineLandscape} />
                                 Länder
                             </a>
@@ -371,7 +371,7 @@
                     </a>
                     <ul class="submenu2">
                         <li>
-                            <a href="/continent/asia/country">
+                            <a href="/country">
                                 <Icon class="inline-block" icon={outlineLandscape} />
                                 Länder
                             </a>
@@ -453,7 +453,7 @@
                     </a>
                     <ul class="submenu2">
                         <li>
-                            <a href="/continent/australia-oceania/country">
+                            <a href="/country">
                                 <Icon class="inline-block" icon={outlineLandscape} />
                                 Länder
                             </a>
@@ -512,7 +512,7 @@
                     </a>
                     <ul class="submenu2">
                         <li>
-                            <a href="/continent/europe/country">
+                            <a href="/country">
                                 <Icon class="inline-block" icon={outlineLandscape} />
                                 Länder
                             </a>
@@ -594,7 +594,7 @@
                     </a>
                     <ul class="submenu2">
                         <li>
-                            <a href="/continent/north-america/country">
+                            <a href="/country">
                                 <Icon class="inline-block" icon={outlineLandscape} />
                                 Länder
                             </a>
@@ -676,7 +676,7 @@
                     </a>
                     <ul class="submenu2">
                         <li>
-                            <a href="/continent/south-america/country">
+                            <a href="/country">
                                 <Icon class="inline-block" icon={outlineLandscape} />
                                 Länder
                             </a>

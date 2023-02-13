@@ -45,6 +45,14 @@
 </svelte:head>
 
 <main>
+	<section class="nav flex flex-wrap flex-row">
+		{#each continents as continent}
+			<a href={continent.href}>
+				<button>{continent.title}</button>
+			</a>
+		{/each}
+	</section>
+	<hr class="mb-10">
 	<div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]">
 		{#each continents as continent}
 			<section class="mt-10 w-64">
