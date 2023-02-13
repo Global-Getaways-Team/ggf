@@ -1,4 +1,12 @@
 <script lang="ts">
+	// Icons
+	import githubIcon from '@iconify/icons-mdi/github';
+	import twitterIcon from '@iconify/icons-mdi/twitter';
+	
+	// Packages
+	import Icon from '@iconify/svelte';
+
+	// Variables
 	type Link = {
 		href: string;
 		text: string;
@@ -8,30 +16,43 @@
 	const links: Link[] = [
 		{
 			href: 'https://twitter.com',
-			text: 'Twitter'
+			icon: 'mdi:twitter',
+			text: 'Twitter',
 		},
 		{
 			href: 'https://github.com',
-			text: 'GitHub'
+			icon: 'mdi:github',
+			text: 'GitHub',
 		},
 		{
 			href: '/impressum',
-			text: 'Impressum'
+			icon: '',
+			text: 'Impressum',
 		},
 		{
 			href: '/datenschutz',
-			text: 'Datenschutz'
+			icon: '',
+			text: 'Datenschutz',
 		}
 	];
 </script>
 
 <footer class="footer mt-20">
-	<ul class="flex flex-wrap">
-		{#each links as link, i (link.href)}
-			<li class={i != 0 ? 'ml-10' : ''}>
-				<i class="fa fa-{link.icon}" />
-				<a href={link.href}>{link.text}</a>
-			</li>
+	<div class="flex flex-wrap gap-4">
+		{#each links as link}
+			<a href={link.href}>
+				<Icon class="inline-block" icon="{link.icon}" />{link.text}
+			</a>
 		{/each}
-	</ul>
+	</div>
 </footer>
+
+<style>
+	footer {
+		padding: 5% 0;
+		width: 100%;
+		display: flex;
+    	justify-content: center;
+		border-top: 1px solid #0a3b7a;
+	}
+</style>
