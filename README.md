@@ -15,6 +15,10 @@ git clone git@github.com:Global-Getaways-Team/global-getaways.git
 ```
 
 ```bash
+cd global-getaways
+```
+
+```bash
 npm install
 ```
 
