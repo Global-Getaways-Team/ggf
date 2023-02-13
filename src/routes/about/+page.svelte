@@ -6,20 +6,20 @@
 
 	const sections: Section[] = [
 		{
-			title: 'Wer sind wir?',
+			title: 'Über uns',
 			body: `Hallo, wir sind die HaWaRieties! HWR-Studenten, die in ihren Ferien zu viele Orte besucht
-			haben. Wenn du mehr über uns und unsere Nutzer wissen möchtest, dann empfehlen wir dir, die
+			haben. Wenn du mehr über uns und den Nutzen unserer Webseite wissen möchtest, dann empfehlen wir dir, die
 			<a href="/blog">Blogbeiträge</a> zu lesen.`
 		},
 		{
 			title: 'Warum ist diese Webseite entstanden?',
-			body: `Diese Webseite ist entstanden, weil wir in unserem Informatik Studium ein Projekt ausgewählt
-			haben um Menschen von dem Computer wegzubewegen in die große weite Welt, damit diese die
+			body: `Diese Webseite ist entstanden, weil wir in unserem Informatikstudium ein Projekt ausgewählt
+			haben, mit dem wir Menschen vom Computer weg in die große weite Welt hinbewegen wollen, damit diese, die
 			verschiedenen Kulturen und Orte kennenlernen. Mit unseren vielen Reisen die wir bereits hinter
 			uns haben, haben wir uns dazu berufen gesehen genau dieses Projekt zu implementieren und
 			unsere Erfahrung mit den verschiedenen Kulturen zu teilen, damit die Nutzer eine
 			Inspirationsquelle haben. Also fühl dich frei und erkunde unsere
-			<a href="/blog">Blogliste</a>.`
+			<a href="/blog">Blogbeiträge</a>.`
 		}
 	];
 </script>
@@ -29,7 +29,7 @@
 	<meta name="description" content="Die Blogbeiträge der global-getways" />
 </svelte:head>
 
-<section class="">
+<section>
 	{#each sections as section (section.title)}
 		<article class="sec-{section.title} mt-10">
 			<h2>{section.title}</h2>

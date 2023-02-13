@@ -1,32 +1,16 @@
 <script lang="ts">
-	type Link = {
-		href: string;
-		text: string;
-	};
-
-	const links: Link[] = [
-		{
-			href: '/blog',
-			text: 'Blogbeiträge'
-		},
-		{
-			href: '/about',
-			text: 'Über uns'
-		}
-	];
+	// Components
+	import Navbar from '$lib/components/Navbar.svelte';
 </script>
 
 <header class="flex items-center justify-between mt-10">
-	<a href="/">
-		<img width="150" height="150" src="/images/logo.png" alt="Das Logo von global-getaways" />
-	</a>
-	<nav class="na">
-		<ul class="flex">
-			{#each links as link (link.href)}
-				<li class="ml-10">
-					<a href={link.href}> {link.text} </a>
-				</li>
-			{/each}
-		</ul>
-	</nav>
+	<Navbar />
 </header>
+
+<style>
+	header {
+		margin-bottom: 8rem;
+		padding: 3rem;
+		background-color: #0a3b7a;
+	}
+</style>
