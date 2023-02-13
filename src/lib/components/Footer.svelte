@@ -38,7 +38,7 @@
 </script>
 
 <footer class="footer mt-20">
-	<div class="flex flex-wrap">
+	<div class="flex flex-wrap gap-4">
 		{#each links as link}
 			<a href={link.href}>
 				<Icon class="inline-block" icon="{link.icon}" />{link.text}
@@ -49,13 +49,10 @@
 
 <style>
 	footer {
-		margin-top: 8rem;
-		padding-top: 3rem;
-		border-top: 1px solid #0a3b7a;
-	}
-
-	footer div {
+		padding: 5% 0;
+		width: 100%;
 		display: flex;
-    	justify-content: space-around;
+    	justify-content: center;
+		border-top: 1px solid #0a3b7a;
 	}
 </style>

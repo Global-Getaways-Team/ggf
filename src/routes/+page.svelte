@@ -17,7 +17,7 @@
 	<meta name="description" content="Homepage der Global Getaways" />
 </svelte:head>
 
-<main class="row-start-2 col-start-2 col-span-8 grid-rows-10 grid-template-columns: 100%;">
+<main>
 	<section>
 		{#each sections as section}
 			<article>
@@ -36,5 +36,8 @@
 </main>
 
 <style>
-
+	:global(main) {
+		width: 80%;
+    	margin: 0 auto
+	}
 </style>

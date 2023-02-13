@@ -1,3 +1,15 @@
+# Setting up project
+
+## Clone project
+git clone git@github.com:Global-Getaways-Team/global-getaways.git
+
+## Install node_modules packages
+npm install
+
+## Run dev
+npm run dev
+
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).

@@ -29,11 +29,20 @@
 	<meta name="description" content="Die Blogbeiträge der global-getways" />
 </svelte:head>
 
-<section>
-	{#each sections as section (section.title)}
-		<article class="sec-{section.title} mt-10">
-			<h2>{section.title}</h2>
-			<p>{@html section.body}</p>
-		</article>
-	{/each}
-</section>
+<main>
+	<section>
+		{#each sections as section (section.title)}
+			<article class="sec-{section.title} mt-10">
+				<h2>{section.title}</h2>
+				<p>{@html section.body}</p>
+			</article>
+		{/each}
+	</section>
+</main>
+
+<style>
+	:global(main) {
+		width: 80%;
+    	margin: 0 auto
+	}
+</style>
