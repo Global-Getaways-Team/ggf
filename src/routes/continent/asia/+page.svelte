@@ -6,40 +6,11 @@
 	};
 
 	const continents: ContinentPost[] = [
-		/*
-		{
-			title: 'Afrika',
-            href: 'continent/africa',
-			content: 'Schöner Text zu Afrika'
-		},
-		*/
 		{
 			title: 'Asien',
             href: 'continent/asia',
 			content: 'Schöner Text zu Asien'
 		},
-		/*
-		{
-			title: 'Australien-Ozeanien',
-            href: 'continent/australia-oceania',
-			content: 'Schöner Text zu Australien-Ozeanien'
-		},
-		{
-			title: 'Europa',
-            href: 'continent/europe',
-			content: 'Schöner Text zu Europa'
-		},
-		{
-			title: 'Nordamerika',
-            href: 'continent/north-america',
-			content: 'Schöner Text zu Nordamerika'
-		},
-		{
-			title: 'Südamerika',
-            href: 'continent/south-america',
-			content: 'Schöner Text zu Südamerika'
-		},
-        */
 	];
 </script>
 
