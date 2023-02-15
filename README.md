@@ -1,38 +1,27 @@
-# create-svelte
+# Setting up project
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Clonen und starten des Projektes
 
-## Creating a project
+## Systemvoraussetzungen
 
-If you're seeing this, you've probably already done this step. Congrats!
+node v19.5.0
+npm v9.4.0
+git
+
+## Schritte Plan
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+git clone git@github.com:Global-Getaways-Team/global-getaways.git
 ```
 
-## Developing
+```bash
+cd global-getaways
+```
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```bash
+npm install
+```
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

@@ -7,76 +7,18 @@
 
 	const blogs: BlogPost[] = [
 		{
-			title: 'Sollte man nach Wien reisen?',
-			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
-			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
-			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
-			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
+			title: 'Die beliebtesten Blogbeiträge bei Global Getaways',
+			content: 'Die am häufigsten besuchten Blogbeiträge werden hier zukünftig angezeigt.'
 		},
-		{
-			title: 'Sollte man nach Paris reisen?',
-			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
-			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
-			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
-			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
-		},
-		{
-			title: 'Sollte man nach Prag reisen?',
-			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
-			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
-			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
-			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
-		},
-		{
-			title: 'Sollte man nach Berlin reisen?',
-			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
-			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
-			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
-			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
-		},
-		{
-			title: 'Sollte man nach Rom reisen?',
-			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
-			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
-			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
-			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
-		},
-		{
-			title: 'Sollte man nach Zürich reisen?',
-			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
-			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
-			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
-			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
-		},
-		{
-			title: 'Sollte man nach Marseille reisen?',
-			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
-			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
-			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
-			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
-		},
-		{
-			title: 'Sollte man nach Barcelona reisen?',
-			content: `Ich war vor kurzem in Östereich und muss sagen es war atemberaubend. Jeden Tag bin ich
-			aufgestanden und habe eine Bergfassade vor mir gesehen, dass mit an meine Hintergrundbilder auf
-			dem Destop erinnert hat. Die Berge sind auch super geeignet für eine Wandertour oder eine
-			Fahrradtour. Meiner Meinung nach bietet Östereich für jeden eine Möglichkeit sich auszuleben und ist auf jeden Fall eine Reise wert.`
-		}
 	];
 </script>
 
 <svelte:head>
 	<title>Blogbeiträge</title>
-	<meta name="description" content="Die Blogbeiträge der global-getways" />
+	<meta name="description" content="Die Blogbeiträge der Global Getaways" />
 </svelte:head>
 
 <main>
-	<nav class="flex flex-wrap list-none gap-2">
-		{#each blogs as blog, i}
-			<li class={i > 0 ? 'ml-3' : ''}>{blog.title}</li>
-		{/each}
-	</nav>
-
 	<div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))]">
 		{#each blogs as blog}
 			<section class="mt-10 w-64">
