@@ -10,5 +10,6 @@
 <style>
 	header {
 		background-color: #0a3b7a;
+		color: red;
 	}
 </style>
