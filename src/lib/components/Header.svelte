@@ -1,15 +1,9 @@
-<script lang="ts">
-	// Components
-	import Navbar from '$lib/components/Navbar.svelte';
-</script>
-
-<header class="flex items-center justify-between mb-10">
-	<Navbar />
+<header class="flex items-center justify-between mb-10 w-[85%] mx-auto mt-10">
+	<a href="/">
+		<img src="/images/logo.png" alt="" width="150" height="150" />
+	</a>
+	<nav>
+		<a href="/blog">Blogbeiträge</a>
+		<a href="/about" class="ml-3">Über uns</a>
+	</nav>
 </header>
-
-<style>
-	header {
-		background-color: #0a3b7a;
-		color: red;
-	}
-</style>

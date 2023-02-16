@@ -1,9 +1,4 @@
 <script lang="ts">
-	// Icons
-	import githubIcon from '@iconify/icons-mdi/github';
-	import twitterIcon from '@iconify/icons-mdi/twitter';
-	
-	// Packages
 	import Icon from '@iconify/svelte';
 
 	// Variables
@@ -17,42 +12,33 @@
 		{
 			href: 'https://twitter.com',
 			icon: 'mdi:twitter',
-			text: 'Twitter',
+			text: 'Twitter'
 		},
 		{
 			href: 'https://github.com',
 			icon: 'mdi:github',
-			text: 'GitHub',
+			text: 'GitHub'
 		},
 		{
 			href: '/impressum',
 			icon: '',
-			text: 'Impressum',
+			text: 'Impressum'
 		},
 		{
 			href: '/datenschutz',
 			icon: '',
-			text: 'Datenschutz',
+			text: 'Datenschutz'
 		}
 	];
 </script>
 
-<footer class="footer mt-20">
+<footer class="footer mt-20 flex justify-center border-t-[1px] border-solid border-black pt-10">
 	<div class="flex flex-wrap gap-4">
 		{#each links as link}
 			<a href={link.href}>
-				<Icon class="inline-block" icon="{link.icon}" />{link.text}
+				<Icon class="inline-block" icon={link.icon} />
+				<span class="font-sans">{link.text}</span>
 			</a>
 		{/each}
 	</div>
 </footer>
-
-<style>
-	footer {
-		padding: 5% 0;
-		width: 100%;
-		display: flex;
-    	justify-content: center;
-		border-top: 1px solid #0a3b7a;
-	}
-</style>

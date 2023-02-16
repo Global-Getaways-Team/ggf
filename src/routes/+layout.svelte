@@ -2,27 +2,18 @@
 	// Components
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
-
 	// Styling
 	import '../app.css';
 </script>
 
-<div class="app">
+<div class="grid gird-cols-[200px_minmax(100vh, 1fr)_200px] w-[100%]">
 	<Header />
-	<slot />
+	<main class="w-[80%] mx-auto">
+		<slot />
+	</main>
 	<Footer />
 </div>
 
 <style global>
-	* {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
 
-	.app {
-		display: grid;
-		grid-template-rows: 200px minmax(100vh, 1fr) 200px;
-		width: 100%;
-	}
 </style>

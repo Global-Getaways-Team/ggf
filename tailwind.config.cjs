@@ -6,6 +6,10 @@ module.exports = {
 			accent: '#FFFFFF',
 			silver: '#ecebff'
 		},
+		fontFamily: {
+			sans: ['Work Sans', 'sans-serif'],
+			mont: ['Montserrat', 'sans-serif']
+		},
 		extend: {}
 	},
 	plugins: []
