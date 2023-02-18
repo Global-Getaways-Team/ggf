@@ -1,14 +1,118 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
+	import type { Comment as CommentT } from "$lib/types/models";
+	import Comment from "$lib/components/Comment.svelte";
+	import Icon from "@iconify/svelte";
+
 	export let data: PageData;
+	let err: Error = Error("default");
+	let showComment = false;
+	const comment: CommentT = {
+		blogId: data.blog.id,
+		body: ""
+	};
+
+	function getLength(str: string): number {
+		if (str.trim().length == 0) {
+			return 0;
+		}
+
+		return str.trim().split(" ").length;
+	}
+
+	function isValid(): boolean {
+		const bodyLength = getLength(comment.body);
+
+		if (!(bodyLength < 150 && bodyLength >= 1)) {
+			err = Error("at least 100 words needed for the body.");
+			return false;
+		}
+
+		return true;
+	}
+
+	async function create() {
+		const isValidForm = isValid();
+
+		if (!isValidForm) {
+			return;
+		}
+
+		const res = await fetch("http://172.19.7.32:8080/api/comment/create", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(comment),
+			credentials: "include"
+		});
+
+		const data = await res.json();
+
+		if (res.status == 409) {
+			if (data.error.code == "P2002") {
+				err = Error(data.error.code);
+				return;
+			}
+		}
+	}
 </script>
 
+<svelte:head>
+	<title>{data.blog.title}</title>
+	<meta
+		name="description"
+		content="Ein Blog ueber die Reise nach {data.blog.city} - {data.blog.country}"
+	/>
+</svelte:head>
+
 <article>
-	<h1 class="font-black text-4xl text-black">{data.title}</h1>
+	<h1 class="font-black text-4xl text-black">{data.blog.title}</h1>
 	<div class="flex justify-between my-1">
-		<span class="font-sans text-black text-lg">{data.city} - {data.country}</span>
-		<span class="opacity-80">{data.createdAt}</span>
+		<span class="font-sans text-black text-lg">{data.blog.city} - {data.blog.country}</span>
+		<span class="opacity-80">{data.blog.createdAt}</span>
 	</div>
 	<hr />
-	<p class="mt-3 font-sans text-black text-md text-justify">{data.body}</p>
+	<p class="mt-3 font-sans text-black text-md text-justify">{data.blog.body}</p>
 </article>
+
+<section class="mt-10">
+	<div
+		class="flex items-center cursor-pointer"
+		on:click|preventDefault={() => (showComment = !showComment)}
+		on:keydown|preventDefault={() => (showComment = !showComment)}
+	>
+		<Icon icon="ic:baseline-plus" />
+		<span class="font-sans text-md text-black">Erstelle einen Kommentar</span>
+	</div>
+	{#if showComment}
+		<div class="relative w-full">
+			<textarea
+				name="comment"
+				id="comment"
+				placeholder="Die Reise meines Lebens..."
+				cols="30"
+				rows="10"
+				bind:value={comment.body}
+				class="border-black border-solid border-[1px] my-4 outline-none p-5 resize-none w-full"
+				minlength="500"
+				maxlength="2000"
+			/>
+
+			<span class="absolute top-5 right-3 font-sans text-black">{getLength(comment.body)}</span>
+		</div>
+		<button
+			type="submit"
+			class="bg-grey rounded-full w-32 font-mont p-1 font-extrabold mb-3"
+			on:click={create}
+		>
+			Erstellen
+		</button>
+	{/if}
+</section>
+
+<section class="mt-10">
+	{#each data.comments as comment (comment.id)}
+		<Comment {comment} />
+	{/each}
+</section>

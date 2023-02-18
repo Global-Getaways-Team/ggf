@@ -13,3 +13,11 @@ export type Link = {
 	text: string;
 	icon?: string;
 };
+
+export type Comment = {
+	id?: string;
+	createdAt?: Date;
+	body: string;
+	blogId: string;
+	authorId?: string;
+};

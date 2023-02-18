@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Comment from "$lib/components/Comment.svelte";
+	import Comment from "$lib/components/Blog.svelte";
 	import { onMount } from "svelte";
 	import { guestId } from "../lib/stores/guest";
 
