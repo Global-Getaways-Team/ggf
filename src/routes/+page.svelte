@@ -1,5 +1,18 @@
 <script lang="ts">
-	import Chip from '$lib/components/Chip.svelte';
+	import { onMount } from "svelte";
+	import { guestId } from "../lib/stores/guest";
+
+	onMount(async () => {
+		const cookies = document.cookie.split("=");
+		const isPresent = cookies[0] == "global_getaways_tracking_id";
+		if (isPresent) return;
+		const guest = await fetch("http://172.19.7.32:8080/api/guest/create", {
+			method: "POST",
+			credentials: "include"
+		});
+		const data = await guest.json();
+		guestId.update((id) => (id = data.id));
+	});
 </script>
 
 <svelte:head>

@@ -1,39 +1,33 @@
 <script lang="ts">
-	import Icon from '@iconify/svelte';
-
-	// Variables
-	type Link = {
-		href: string;
-		text: string;
-		icon?: string;
-	};
+	import Icon from "@iconify/svelte";
+	import type { Link } from "$lib/types/models";
 
 	const links: Link[] = [
 		{
-			href: 'https://twitter.com',
-			icon: 'mdi:twitter',
-			text: 'Twitter'
+			href: "https://twitter.com",
+			icon: "mdi:twitter",
+			text: "Twitter"
 		},
 		{
-			href: 'https://github.com',
-			icon: 'mdi:github',
-			text: 'GitHub'
+			href: "https://github.com",
+			icon: "mdi:github",
+			text: "GitHub"
 		},
 		{
-			href: '/impressum',
-			icon: '',
-			text: 'Impressum'
+			href: "/impressum",
+			icon: "",
+			text: "Impressum"
 		},
 		{
-			href: '/datenschutz',
-			icon: '',
-			text: 'Datenschutz'
+			href: "/datenschutz",
+			icon: "",
+			text: "Datenschutz"
 		}
 	];
 </script>
 
 <footer class="footer mt-20 flex justify-center border-t-[1px] border-solid border-black pt-10">
-	<div class="flex flex-wrap gap-4">
+	<div class="flex flex-wrap gap-4 mb-10">
 		{#each links as link}
 			<a href={link.href}>
 				<Icon class="inline-block" icon={link.icon} />
