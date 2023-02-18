@@ -28,3 +28,11 @@ export type Favorite = {
 	blogId?: string;
 	guestId?: string;
 };
+
+export type Guest = {
+	id?: string;
+	createdAt?: Date;
+	revisited?: Date;
+	left?: Date;
+	durationOfLastVisit?: number;
+};

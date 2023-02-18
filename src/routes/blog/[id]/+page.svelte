@@ -2,17 +2,22 @@
 	import type { PageData } from "./$types";
 	import type { Comment as CommentT } from "$lib/types/models";
 	import type { Favorite } from "$lib/types/models";
+	import guest from "../../../store";
 	import Comment from "$lib/components/Comment.svelte";
 	import Icon from "@iconify/svelte";
 	export let data: PageData;
-	const iconType =
-		data.favorite !== null ? "material-symbols:favorite-outline" : "material-symbols:favorite-full";
+
 	let err: Error = Error("default");
 	let showComment = false;
 	const comment: CommentT = {
 		blogId: data.blog.id,
 		body: ""
 	};
+
+	function showTrashIcon(c: CommentT): boolean {
+		if (c.authorId == $guest) return true;
+		return false;
+	}
 
 	function getLength(str: string): number {
 		if (str.trim().length == 0) {
@@ -40,7 +45,7 @@
 			return;
 		}
 
-		const res = await fetch("http://172.19.226.170:8080/api/comment/create", {
+		const res = await fetch("http://172.27.145.161:8080/api/comment/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -68,7 +73,7 @@
 			blogId: data.blog.id
 		};
 
-		const res = await fetch("http://172.19.226.170:8080/api/favorite/create", {
+		const res = await fetch("http://172.27.145.161:8080/api/favorite/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -82,7 +87,7 @@
 	}
 
 	async function defavoritise() {
-		const res = await fetch(`http://172.19.226.170:8080/api/favorite/delete/${data.favorite.id}`, {
+		await fetch(`http://172.27.145.161:8080/api/favorite/delete/${data.favorite.id}`, {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json"
@@ -172,6 +177,6 @@
 <section class="mt-10">
 	<h2 class="font-black font-mont text-black text-2xl">Kommentare</h2>
 	{#each data.comments as comment (comment.id)}
-		<Comment {comment} />
+		<Comment {comment} showTrashIcon={showTrashIcon(comment)} />
 	{/each}
 </section>

@@ -1,17 +1,16 @@
 <script lang="ts">
 	import { onMount } from "svelte";
-	import { guestId } from "../lib/stores/guest";
-
+	import type { Guest } from "$lib/types/models";
 	onMount(async () => {
 		const cookies = document.cookie.split("=");
 		const isPresent = cookies[0] == "global_getaways_tracking_id";
 		if (isPresent) return;
-		const guest = await fetch("http://172.19.226.170:8080/api/guest/create", {
+		const res = await fetch("http://172.27.145.161:8080/api/guest/create", {
 			method: "POST",
 			credentials: "include"
 		});
-		const data = await guest.json();
-		guestId.update((id) => (id = data.id));
+		const g: Guest = await res.json();
+		localStorage.setItem("global_getaways_guest_id", g.id);
 	});
 </script>
 
