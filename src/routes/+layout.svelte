@@ -2,7 +2,6 @@
 	// Components
 	import Footer from '$lib/components/Footer.svelte';
 	import Header from '$lib/components/Header.svelte';
-
 	// Styling
 	import '../app.css';
 </script>
@@ -19,7 +18,6 @@
 		margin: 0;
 		padding: 0;
 	}
-
 	.app {
 		display: grid;
 		grid-template-rows: 200px minmax(100vh, 1fr) 200px;
