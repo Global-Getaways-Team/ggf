@@ -14,7 +14,8 @@
 
 <div
 	class="w-[350px] bg-grey p-5 hover:drop-shadow-[0_0.1rem_1rem_rgba(0,0,0,0.2)] transition-all duration-200 hover:scale-105 cursor-pointer"
-	on:click={showDetails(blog.id)}
+	on:click={() => showDetails(blog.id)}
+	on:keydown={() => showDetails(blog.id)}
 >
 	<img
 		src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
