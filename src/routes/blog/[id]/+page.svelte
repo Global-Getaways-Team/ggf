@@ -1,10 +1,12 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
 	import type { Comment as CommentT } from "$lib/types/models";
+	import type { Favorite } from "$lib/types/models";
 	import Comment from "$lib/components/Comment.svelte";
 	import Icon from "@iconify/svelte";
-
 	export let data: PageData;
+	const iconType =
+		data.favorite !== null ? "material-symbols:favorite-outline" : "material-symbols:favorite-full";
 	let err: Error = Error("default");
 	let showComment = false;
 	const comment: CommentT = {
@@ -38,7 +40,7 @@
 			return;
 		}
 
-		const res = await fetch("http://172.19.7.32:8080/api/comment/create", {
+		const res = await fetch("http://172.19.226.170:8080/api/comment/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -47,14 +49,47 @@
 			credentials: "include"
 		});
 
-		const data = await res.json();
+		const c = await res.json();
 
 		if (res.status == 409) {
-			if (data.error.code == "P2002") {
-				err = Error(data.error.code);
+			if (c.error.code == "P2002") {
+				err = Error(c.error.code);
 				return;
 			}
 		}
+
+		data.comments = [c, ...data.comments];
+		showComment = !showComment;
+		comment.body = "";
+	}
+
+	async function favoritise() {
+		const fav: Favorite = {
+			blogId: data.blog.id
+		};
+
+		const res = await fetch("http://172.19.226.170:8080/api/favorite/create", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(fav),
+			credentials: "include"
+		});
+
+		const result: Favorite = await res.json();
+		data.favorite = result;
+	}
+
+	async function defavoritise() {
+		const res = await fetch(`http://172.19.226.170:8080/api/favorite/delete/${data.favorite.id}`, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			credentials: "include"
+		});
+		data.favorite = null;
 	}
 </script>
 
@@ -67,7 +102,30 @@
 </svelte:head>
 
 <article>
-	<h1 class="font-black text-4xl text-black">{data.blog.title}</h1>
+	<div class="flex items-center">
+		<h1 class="font-black text-4xl text-black inline">{data.blog.title}</h1>
+		{#if data.favorite === null}
+			<button on:click={favoritise}>
+				<Icon
+					style="color:red;"
+					width="25"
+					height="25"
+					icon="material-symbols:favorite-outline"
+					class="ml-5 cursor-pointer"
+				/>
+			</button>
+		{:else}
+			<button on:click={defavoritise}>
+				<Icon
+					style="color:red;"
+					width="25"
+					height="25"
+					icon="material-symbols:favorite"
+					class="ml-5 cursor-pointer"
+				/>
+			</button>
+		{/if}
+	</div>
 	<div class="flex justify-between my-1">
 		<span class="font-sans text-black text-lg">{data.blog.city} - {data.blog.country}</span>
 		<span class="opacity-80">{data.blog.createdAt}</span>
@@ -112,6 +170,7 @@
 </section>
 
 <section class="mt-10">
+	<h2 class="font-black font-mont text-black text-2xl">Kommentare</h2>
 	{#each data.comments as comment (comment.id)}
 		<Comment {comment} />
 	{/each}

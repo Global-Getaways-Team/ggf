@@ -21,3 +21,10 @@ export type Comment = {
 	blogId: string;
 	authorId?: string;
 };
+
+export type Favorite = {
+	id?: string;
+	createdAt?: Date;
+	blogId?: string;
+	guestId?: string;
+};

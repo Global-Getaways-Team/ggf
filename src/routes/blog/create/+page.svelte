@@ -61,7 +61,7 @@
 			return e;
 		}
 
-		const res = await fetch("http://172.19.7.32:8080/api/blog/create", {
+		const res = await fetch("http://172.19.226.170:8080/api/blog/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

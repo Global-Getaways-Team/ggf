@@ -22,7 +22,7 @@
 		alt="Fernseh Turm"
 	/>
 	<section class="mt-4">
-		<h3 class="font-mont font-bold text-black">{blog.title}</h3>
+			<h3 class="font-mont font-bold text-black">{blog.title}</h3>
 		<span class="font-mont text-xs font-light text-black">{blog.city} - {blog.country}</span>
 
 		<hr class="opacity-20 bg-black" />

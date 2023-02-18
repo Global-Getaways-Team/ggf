@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Comment from "$lib/components/Blog.svelte";
 	import { onMount } from "svelte";
 	import { guestId } from "../lib/stores/guest";
 
@@ -7,7 +6,7 @@
 		const cookies = document.cookie.split("=");
 		const isPresent = cookies[0] == "global_getaways_tracking_id";
 		if (isPresent) return;
-		const guest = await fetch("http://172.19.7.32:8080/api/guest/create", {
+		const guest = await fetch("http://172.19.226.170:8080/api/guest/create", {
 			method: "POST",
 			credentials: "include"
 		});
@@ -20,8 +19,6 @@
 	<title>Global Getaways</title>
 	<meta name="description" content="Homepage der Global Getaways" />
 </svelte:head>
-
-<Comment />
 
 <h2 class="font-mont font-bold">Melde dich direkt hier an, um nichts mehr zu verpassen!</h2>
 <form class="mt-5 flex items-center">

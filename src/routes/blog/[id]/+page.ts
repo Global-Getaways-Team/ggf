@@ -1,20 +1,25 @@
 import type { PageLoad } from "./$types";
-import type { Blog } from "$lib/types/models";
-import type { Comment } from "$lib/types/models";
+import type { Blog, Comment, Favorite } from "$lib/types/models";
 
 export const load = (async ({ params, fetch }) => {
-	const res = await fetch(`http://172.19.7.32:8080/api/blog/get/${params.id}`, {
+	const res = await fetch(`http://172.19.226.170:8080/api/blog/single/${params.id}`, {
 		credentials: "include",
 		method: "GET"
 	});
 
-	const resComment = await fetch(`http://172.19.7.32:8080/api/comment/list/${params.id}`, {
+	const resComment = await fetch(`http://172.19.226.170:8080/api/comment/list/${params.id}`, {
+		credentials: "include",
+		method: "GET"
+	});
+
+	const resFavorite = await fetch(`http://172.19.226.170:8080/api/favorite/single/${params.id}`, {
 		credentials: "include",
 		method: "GET"
 	});
 
 	const comments: Comment[] = await resComment.json();
+	const favorite: Favorite = await resFavorite.json();
 
 	const blog: Blog = await res.json();
-	return { blog, comments };
+	return { blog, comments, favorite };
 }) satisfies PageLoad;
