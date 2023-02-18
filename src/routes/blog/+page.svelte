@@ -1,5 +1,5 @@
 <script lang="ts">
-	
+
 	type BlogPost = {
 		title: string;
 		content: string;

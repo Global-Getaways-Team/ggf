@@ -1,28 +1,42 @@
 <script lang="ts">
-let comment = '';
-	import Header from '$lib/components/Header.svelte';
-
-	// Styling
 	import Comment from '$lib/components/Comment.svelte';
 
-	var comments = ['This is really nice place', 'I want to go there', 'Dream Island'];
-
-	const newComment = () => {
-		comments = [...comments, comment];
-		comment = '';
+	const utc = new Date().toUTCString();
+	type CommentT = {
+		content: String;
+		date?: String;
 	};
+	const comment: CommentT = {
+		content: '',
+		date: new Date().toUTCString()
+	};
+
+	let comments: CommentT[] = [
+		{
+			content: 'something',
+			date: utc
+		},
+		{
+			content: 'something else',
+			date: utc
+		}
+	];
+
+	function createComment() {
+		// request an die backen
+		comments = [comment, ...comments];
+	}
 </script>
 
 <main>
 	<div class="commentBox" style="height:268px;">
-		<Comment />
 		<p>Leave a comment</p>
 		<div class="commentForm">
 			<div class="comments">
-				<textarea rows="4" placeholder="Write your comment" bind:value={comment} />
-				<button on:click={newComment}>new comment</button>
-				{#each comments as comm}
-					<Comment comment={comm} />
+				<textarea rows="4" placeholder="Write your comment" bind:value={comment.content} />
+				<button on:click={createComment}>new comment</button>
+				{#each comments as comment}
+					<Comment {comment} />
 				{/each}
 			</div>
 		</div>
