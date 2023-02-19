@@ -8,7 +8,7 @@ export const load = (async ({ fetch }) => {
 	const cookies = document.cookie.split("=");
 	const isPresent = cookies[0] == "global_getaways_tracking_id";
 	if (!isPresent) {
-		const res = await fetch("http://172.27.145.161:8080/api/guest/create", {
+		const res = await fetch("http://localhost:8080/api/guest/create", {
 			method: "POST",
 			credentials: "include"
 		});
@@ -43,7 +43,7 @@ export const load = (async ({ fetch }) => {
 	}
 
 	const res = blogIds.map(async (id) => {
-		const resp = await fetch(`http://172.27.145.161:8080/api/blog/single/${id}`, {
+		const resp = await fetch(`http://localhost:8080/api/blog/single/${id}`, {
 			method: "GET",
 			credentials: "include"
 		});

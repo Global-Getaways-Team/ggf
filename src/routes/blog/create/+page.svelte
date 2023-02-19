@@ -1,12 +1,11 @@
 <script lang="ts">
 	import type { Blog } from "$lib/types/models";
 	let blog: Blog = {
-		body: `dajskldjask daskj lds jdk dajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdkdajskldjask daskj lds jdk`,
-		city: "blerin",
-		country: "germany",
-		image:
-			"https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1120&q=80",
-		title: "das"
+		body: "",
+		country: "",
+		city: "",
+		image: "",
+		title: ""
 	};
 
 	let err: Error = Error("");
@@ -61,7 +60,7 @@
 			return e;
 		}
 
-		const res = await fetch("http://172.27.145.161:8080/api/blog/create", {
+		const res = await fetch("http://localhost:8080/api/blog/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"

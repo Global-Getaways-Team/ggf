@@ -5,7 +5,7 @@
 	let blogs: Blog[] = [];
 
 	onMount(async () => {
-		const data = await fetch("http://172.27.145.161:8080/api/blog/all", {
+		const data = await fetch("http://localhost:8080/api/blog/all", {
 			method: "GET",
 			credentials: "include"
 		});
