@@ -23,16 +23,13 @@
 	on:click={() => showDetails(blog.id)}
 	on:keydown={() => showDetails(blog.id)}
 >
-	<img
-		src="https://images.unsplash.com/photo-1560930950-5cc20e80e392?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-		alt="Fernseh Turm"
-	/>
+	<img src={blog.image} alt="Ein Bild das die Erfahrung im Blog veranschaulicht." />
 	<article class="mt-4">
 		<h3 class="font-mont font-bold text-black">{blog.title}</h3>
 		<span class="font-mont text-xs font-light text-black">{blog.city} - {blog.country}</span>
 
 		<hr class="opacity-20 bg-black" />
-		<p class="mt-1 font-sans text-black text-justify">
+		<p class="mt-1 font-sans text-black text-justify overflow-hidden">
 			{cut(blog.body)}
 		</p>
 	</article>

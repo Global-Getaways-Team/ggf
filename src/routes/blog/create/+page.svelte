@@ -54,13 +54,10 @@
 
 	async function create() {
 		err = Error();
-		try {
-			isValid();
-		} catch (e) {
-			return e;
-		}
+		const isValidForm = isValid();
 
-		const res = await fetch("http://localhost:8080/api/blog/create", {
+		if (!isValidForm) return;
+		const res = await fetch("http://172.29.45.205:8080/api/blog/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -113,7 +110,7 @@
 	/>
 
 	<input
-		type="url"
+		type="text"
 		id="image"
 		placeholder="www.unsplash.com/some/picture"
 		class="outline-none font-sans mt-4 text-xl"
@@ -129,8 +126,6 @@
 			rows="10"
 			bind:value={blog.body}
 			class="border-black border-solid border-[1px] my-4 outline-none p-5 resize-none w-full"
-			minlength="500"
-			maxlength="2000"
 		/>
 
 		<span class="absolute top-5 right-3 font-sans text-black">{getLength(blog.body)}</span>

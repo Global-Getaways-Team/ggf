@@ -39,7 +39,7 @@
 	}
 
 	async function deleteComment(c: CommentT, i: number) {
-		await fetch(`http://localhost:8080/api/comment/delete/${c.id}`, {
+		await fetch(`http://172.29.45.205:8080/api/comment/delete/${c.id}`, {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json"
@@ -58,7 +58,7 @@
 			return;
 		}
 
-		const res = await fetch("http://localhost:8080/api/comment/create", {
+		const res = await fetch("http://172.29.45.205:8080/api/comment/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -86,7 +86,7 @@
 			blogId: data.blog.id
 		};
 
-		const res = await fetch("http://localhost:8080/api/favorite/create", {
+		const res = await fetch("http://172.29.45.205:8080/api/favorite/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -100,7 +100,7 @@
 	}
 
 	async function defavoritise() {
-		await fetch(`http://localhost:8080/api/favorite/delete/${data.favorite.id}`, {
+		await fetch(`http://172.29.45.205:8080/api/favorite/delete/${data.favorite.id}`, {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json"

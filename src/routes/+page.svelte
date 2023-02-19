@@ -9,12 +9,14 @@
 	<meta name="description" content="Homepage der Global Getaways" />
 </svelte:head>
 
-<h2 class="font-mont text-black text-2xl font-black">Diese Beiträge scheinen dir zu gefallen</h2>
-<section class="flex gap-3 mt-4">
-	{#each data.blogs as blog}
-		<MiniCard {blog} />
-	{/each}
-</section>
+{#if data.blogs.length > 0}
+	<h2 class="font-mont text-black text-2xl font-black">Diese Beiträge scheinen dir zu gefallen</h2>
+	<section class="flex gap-3 mt-4">
+		{#each data.blogs as blog}
+			<MiniCard {blog} />
+		{/each}
+	</section>
+{/if}
 
 <h2 class="font-mont font-bold text-2xl text-black mt-10">
 	Melde dich direkt hier an, um nichts mehr zu verpassen!

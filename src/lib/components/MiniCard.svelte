@@ -1,7 +1,13 @@
 <script lang="ts">
 	import type { Blog } from "$lib/types/models";
 	import { browser } from "$app/environment";
-	export let blog: Blog;
+	export let blog: Blog = {
+		body: "",
+		city: "",
+		country: "",
+		image: "",
+		title: ""
+	};
 	function showDetails(id: string) {
 		if (browser) {
 			let num = parseInt(localStorage.getItem(`blog_counter_${id}`) || "0");

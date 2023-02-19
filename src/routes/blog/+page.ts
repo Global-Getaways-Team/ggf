@@ -2,11 +2,14 @@ import type { PageLoad } from "./$types";
 import type { Blog } from "$lib/types/models";
 
 export const load = (async ({ fetch }) => {
-	const res = await fetch(`http://172.29.45.205:8080/api/favorite/all`, {
+	const data = await fetch("http://172.29.45.205:8080/api/blog/all", {
 		method: "GET",
 		credentials: "include"
 	});
 
-	const blogs: { blog: Blog }[] = await res.json();
+	let blogs: Blog[] = await data.json();
+	blogs = blogs.filter((v) => {
+		return v !== null;
+	});
 	return { blogs };
 }) satisfies PageLoad;
