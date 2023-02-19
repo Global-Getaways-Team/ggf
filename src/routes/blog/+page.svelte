@@ -18,8 +18,8 @@
 	<meta name="description" content="Die Blogbeiträge der Global Getaways" />
 </svelte:head>
 
-<section class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-5">
+<div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-5">
 	{#each blogs as blog (blog.id)}
 		<Card {blog} />
 	{/each}
-</section>
+</div>

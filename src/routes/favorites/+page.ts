@@ -8,7 +8,5 @@ export const load = (async ({ fetch }) => {
 	});
 
 	const blogs: { blog: Blog }[] = await res.json();
-	console.log(blogs);
-
 	return { blogs };
 }) satisfies PageLoad;

@@ -12,16 +12,6 @@
 			href: "https://github.com",
 			icon: "mdi:github",
 			text: "GitHub"
-		},
-		{
-			href: "/impressum",
-			icon: "",
-			text: "Impressum"
-		},
-		{
-			href: "/datenschutz",
-			icon: "",
-			text: "Datenschutz"
 		}
 	];
 </script>

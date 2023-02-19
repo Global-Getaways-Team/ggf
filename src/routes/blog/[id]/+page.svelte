@@ -38,6 +38,19 @@
 		return true;
 	}
 
+	async function deleteComment(c: CommentT, i: number) {
+		await fetch(`http://172.27.145.161:8080/api/comment/delete/${c.id}`, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			credentials: "include"
+		});
+
+		data.comments.splice(i, 1);
+		data.comments = data.comments;
+	}
+
 	async function create() {
 		const isValidForm = isValid();
 
@@ -176,7 +189,13 @@
 
 <section class="mt-10">
 	<h2 class="font-black font-mont text-black text-2xl">Kommentare</h2>
-	{#each data.comments as comment (comment.id)}
-		<Comment {comment} showTrashIcon={showTrashIcon(comment)} />
+	{#each data.comments as comment, index (comment.id)}
+		<Comment
+			{comment}
+			showTrashIcon={showTrashIcon(comment)}
+			on:click={() => {
+				deleteComment(comment, index);
+			}}
+		/>
 	{/each}
 </section>

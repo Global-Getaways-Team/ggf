@@ -6,13 +6,13 @@
 
 	const sections: Section[] = [
 		{
-			title: 'Über uns',
+			title: "Über uns",
 			body: `Hallo, wir sind die HaWaRieties! HWR-Studenten, die in ihren Ferien zu viele Orte besucht
 			haben. Wenn du mehr über uns und den Nutzen unserer Webseite wissen möchtest, dann empfehlen wir dir, die
 			<a href="/blog">Blogbeiträge</a> zu lesen.`
 		},
 		{
-			title: 'Warum ist diese Webseite entstanden?',
+			title: "Warum ist diese Webseite entstanden?",
 			body: `Diese Webseite ist entstanden, weil wir in unserem Informatikstudium ein Projekt ausgewählt
 			haben, mit dem wir Menschen vom Computer weg in die große weite Welt hinbewegen wollen, damit diese, die
 			verschiedenen Kulturen und Orte kennenlernen. Mit unseren vielen Reisen die wir bereits hinter
@@ -39,10 +39,3 @@
 		{/each}
 	</section>
 </main>
-
-<style>
-	:global(main) {
-		width: 80%;
-    	margin: 0 auto
-	}
-</style>
