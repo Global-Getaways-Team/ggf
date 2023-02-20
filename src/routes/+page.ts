@@ -2,14 +2,10 @@ import type { PageLoad } from "./$types";
 import type { Guest, Blog } from "$lib/types/models";
 import { browser } from "$app/environment";
 
-export const prerender = false;
-
 export const load = (async ({ fetch }) => {
 	if (!browser) return { blogs: [] };
-	// register the guest
-	const cookies = document.cookie.split("=");
-	const isPresent = cookies[0] == "global_getaways_tracking_id";
-	if (!isPresent) {
+	const isPresent = localStorage.getItem("global_getaways_guest_id");
+	if (isPresent == "") {
 		const res = await fetch("http://localhost:8080/api/guest/create", {
 			method: "POST",
 			credentials: "include"
@@ -17,7 +13,6 @@ export const load = (async ({ fetch }) => {
 		const g: Guest = await res.json();
 		localStorage.setItem("global_getaways_guest_id", g.id);
 	}
-
 	// get the recent blogs that are the guest visited >2
 	const keys = Object.keys(localStorage).filter((key) => {
 		const regexp = new RegExp(
