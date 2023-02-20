@@ -9,8 +9,15 @@
 	<meta name="description" content="Die Blogbeiträge der Global Getaways" />
 </svelte:head>
 
-<div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-5">
-	{#each data.blogs as blog (blog.id)}
-		<Card {blog} />
-	{/each}
-</div>
+{#if data.blogs.length > 0}
+	<div class="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-5">
+		{#each data.blogs as blog (blog.id)}
+			<Card {blog} />
+		{/each}
+	</div>
+{:else}
+	<span class="font-sans text-black text-xl"
+		>Keine Blogbeiträge erstellt. Fange mit deinem ersten
+		<a href="/blog/create" class="text-black font-sans">a</a>
+	</span>
+{/if}

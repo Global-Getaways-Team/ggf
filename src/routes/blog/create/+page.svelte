@@ -57,7 +57,7 @@
 		const isValidForm = isValid();
 
 		if (!isValidForm) return;
-		const res = await fetch("http://172.29.45.205:8080/api/blog/create", {
+		const res = await fetch("http://localhost:8080/api/blog/create", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
