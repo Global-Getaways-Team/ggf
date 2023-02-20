@@ -4,14 +4,18 @@ import { browser } from "$app/environment";
 
 export const load = (async ({ fetch }) => {
 	if (!browser) return { blogs: [] };
+	console.log("running");
 	const isPresent = localStorage.getItem("global_getaways_guest_id");
-	if (isPresent == "") {
+
+	console.log(isPresent);
+	if (isPresent === "" || isPresent === null) {
 		const res = await fetch("http://localhost:8080/api/guest/create", {
 			method: "POST",
 			credentials: "include"
 		});
 		const g: Guest = await res.json();
 		localStorage.setItem("global_getaways_guest_id", g.id);
+		console.log(g.id);
 	}
 	// get the recent blogs that are the guest visited >2
 	const keys = Object.keys(localStorage).filter((key) => {
