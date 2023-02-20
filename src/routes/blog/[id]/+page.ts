@@ -1,8 +1,6 @@
 import type { PageLoad } from "./$types";
 import type { Blog, Comment, Favorite } from "$lib/types/models";
 
-export const prerender = false;
-
 export const load = (async ({ params, fetch }) => {
 	const resBlog = await fetch(`http://localhost:8080/api/blog/single/${params.id}`, {
 		credentials: "include",
