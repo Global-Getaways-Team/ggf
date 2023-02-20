@@ -5,11 +5,7 @@ export const load = (async ({ params, fetch }) => {
 	const resBlog = await fetch(`http://localhost:8080/api/blog/single/${params.id}`, {
 		credentials: "include",
 		method: "GET"
-	})
-		.then((res) => res.json())
-		.catch((err) => {
-			console.error(err);
-		});
+	});
 
 	const resComment = await fetch(`http://localhost:8080/api/comment/list/${params.id}`, {
 		credentials: "include",
