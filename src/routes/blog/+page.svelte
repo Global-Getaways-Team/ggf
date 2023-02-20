@@ -18,6 +18,6 @@
 {:else}
 	<span class="font-sans text-black text-xl"
 		>Keine Blogbeiträge erstellt. Fange mit deinem ersten
-		<a href="/blog/create" class="text-black font-sans bg-red">an</a>
+		<a href="/blog/create" class="font-sans text-red">an</a>
 	</span>
 {/if}
