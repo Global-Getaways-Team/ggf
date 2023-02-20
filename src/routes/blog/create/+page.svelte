@@ -9,6 +9,7 @@
 	};
 
 	let err: Error = Error("");
+	let succ: boolean = false;
 
 	function getLength(str: string): number {
 		if (str.trim().length == 0) {
@@ -25,27 +26,29 @@
 		const countryLength = getLength(blog.country);
 
 		if (!(titleLength < 10 && titleLength >= 1)) {
-			err = Error("title has to be between 1 and 10 words");
+			err = Error("Der Titel darf zwischen 1 - 10 Wörter beinhalten.");
 			return false;
 		}
 
 		if (cityLength == 0) {
-			err = Error("only one city possible");
+			err = Error("Nur eine Stadrd kann angegeben werden.");
 			return false;
 		}
 
 		if (countryLength == 0) {
-			err = Error("only one country possible");
+			err = Error("Nur ein Land kann angegeben werden");
 			return false;
 		}
 
 		if (blog.image == "") {
-			err = Error("image has to be provided");
+			err = Error(
+				"Ein Bild-URL muss angegeben werden. unsplash.com ist eine gute Webseite für solche Bilder."
+			);
 			return false;
 		}
 
 		if (!(bodyLength < 500 && bodyLength >= 100)) {
-			err = Error("at least 100 words needed for the body.");
+			err = Error("Der Blog muss aus 100 - 500 Wörtern bestehen.");
 			return false;
 		}
 
@@ -74,12 +77,22 @@
 				return;
 			}
 		}
+
+		succ = true;
 	}
 </script>
 
 {#if err.message != ""}
 	<section class="my-2  bg-red text-black p-2 rounded-lg ">
 		<h3>{err.message}</h3>
+	</section>
+{/if}
+
+{#if succ}
+	<section class="my-2 bg-green text-black p-2 rounded-lg ">
+		<h3>
+			Dein Blog wurde kreiert. Besuche <a href="/blog">die Blogbeiträge</a> um alle un deinen zu erkunden.
+		</h3>
 	</section>
 {/if}
 

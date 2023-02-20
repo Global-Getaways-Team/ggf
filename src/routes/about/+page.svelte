@@ -33,8 +33,8 @@
 	<section>
 		{#each sections as section (section.title)}
 			<article class="sec-{section.title} mt-10">
-				<h2>{section.title}</h2>
-				<p>{@html section.body}</p>
+				<h2 class="font-mont text-2xl font-black text-black">{section.title}</h2>
+				<p class="font-sans text-lg text-black font-light">{@html section.body}</p>
 			</article>
 		{/each}
 	</section>

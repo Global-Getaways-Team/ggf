@@ -18,17 +18,11 @@
 	</section>
 {/if}
 
-<h2 class="font-mont font-bold text-2xl text-black mt-10">
-	Melde dich direkt hier an, um nichts mehr zu verpassen!
-</h2>
-<form class="mt-5 flex items-center">
-	<input
-		type="email"
-		id="email"
-		placeholder="muster@mail.de"
-		class="outline-none border-b-[1px] border-black"
-	/>
-	<button type="submit" class="ml-2 font-sans font-medium bg-silver rounded-full px-2 py-1">
-		Subscribe
-	</button>
-</form>
+<section class="mt-10">
+	<h2 class="font-mont font-bold text-2xl text-black">Was wird dich erwarten?</h2>
+	<p class="font-sans font-light text-xl text-black mt-3">
+		Hier kannst du <a href="/blog">Blogbeiträge</a> von verschiedenen Personen lesen und für deinen nächste
+		Reise Inspiration suchen. Verschiedene Perspektiven auf einen Stadt sorgen für eine Runde Meinung.
+		Hier findest du die Bestätigung deiner Reise und ob es deiner Vorstellung entsprechen wird.
+	</p>
+</section>

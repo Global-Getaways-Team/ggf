@@ -4,10 +4,7 @@ import { browser } from "$app/environment";
 
 export const load = (async ({ fetch }) => {
 	if (!browser) return { blogs: [] };
-	console.log("running");
 	const isPresent = localStorage.getItem("global_getaways_guest_id");
-
-	console.log(isPresent);
 	if (isPresent === "" || isPresent === null) {
 		const res = await fetch("http://localhost:8080/api/guest/create", {
 			method: "POST",

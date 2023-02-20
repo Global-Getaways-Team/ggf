@@ -148,7 +148,7 @@
 		<span class="font-sans text-black text-lg">{data.blog.city} - {data.blog.country}</span>
 		<span class="opacity-80">{data.blog.createdAt}</span>
 	</div>
-	<hr />
+	<hr class="bg-black opacity-50" />
 	<p class="mt-3 font-sans text-black text-md text-justify">{data.blog.body}</p>
 </article>
 
@@ -163,16 +163,12 @@
 	</div>
 	{#if showComment}
 		<div class="relative w-full">
-			<textarea
-				name="comment"
+			<input
+				type="text"
 				id="comment"
 				placeholder="Die Reise meines Lebens..."
-				cols="30"
-				rows="10"
 				bind:value={comment.body}
-				class="border-black border-solid border-[1px] my-4 outline-none p-5 resize-none w-full"
-				minlength="500"
-				maxlength="2000"
+				class="border-b-2 border-solid my-4 border-black border-opacity-50 outline-none p-1 resize-none w-full"
 			/>
 
 			<span class="absolute top-5 right-3 font-sans text-black">{getLength(comment.body)}</span>
