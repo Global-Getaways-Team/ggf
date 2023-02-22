@@ -82,6 +82,11 @@
 	}
 </script>
 
+
+<svelte:head>
+	<title>Verfassen</title>
+</svelte:head>
+
 {#if err.message != ""}
 	<section class="my-2  bg-red text-black p-2 rounded-lg ">
 		<h3>{err.message}</h3>
