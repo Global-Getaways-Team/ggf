@@ -82,7 +82,6 @@
 	}
 </script>
 
-
 <svelte:head>
 	<title>Verfassen</title>
 </svelte:head>
