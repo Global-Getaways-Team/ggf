@@ -1,44 +1,47 @@
 import type { PageLoad } from "./$types";
 import type { Blog, Comment, Favorite } from "$lib/types/models";
+import { browser } from "$app/environment";
 
 export const load = (async ({ params, fetch }) => {
-	const blog: Blog = await fetch(`http://localhost:8080/api/blog/single/${params.id}`, {
-		credentials: "include",
-		method: "GET"
-	})
-		.catch((err) => {
-			console.log(err);
-			return err;
-		})
-		.then((res) => res.json());
+	const empty: { blog: Blog; comments: Comment[]; favorite: Favorite } = {
+		blog: {
+			body: "",
+			city: "",
+			country: "",
+			image: "",
+			title: ""
+		},
+		comments: [],
+		favorite: {}
+	};
+	if (!browser) return empty;
+	try {
+		const resBlog = await fetch(`http://localhost:8080/api/blog/single/${params.id}`, {
+			credentials: "include",
+			method: "GET"
+		});
 
-	const comments: Comment[] = await fetch(`http://localhost:8080/api/comment/list/${params.id}`, {
-		credentials: "include",
-		method: "GET"
-	})
-		.catch((err) => {
-			console.log(err);
-			return err;
-		})
-		.then((res) => res.json());
+		console.log(resBlog);
 
-	const favorite: Favorite = await fetch(`http://localhost:8080/api/favorite/single/${params.id}`, {
-		credentials: "include",
-		method: "GET"
-	})
-		.catch((err) => {
-			console.log(err);
-			return err;
-		})
-		.then((res) => res.json());
+		const resComments = await fetch(`http://localhost:8080/api/comment/list/${params.id}`, {
+			credentials: "include",
+			method: "GET"
+		});
 
-	if (blog === undefined || comments == undefined || favorite === undefined) {
-		return {
-			blog: {},
-			comments: [],
-			favorite: {}
-		};
+		console.log(resComments);
+
+		const resFavorite = await fetch(`http://localhost:8080/api/favorite/single/${params.id}`, {
+			credentials: "include",
+			method: "GET"
+		});
+
+		console.log(resFavorite);
+		const favorite: Favorite = await resFavorite.json();
+		const blog: Blog = await resBlog.json();
+		const comments: Comment[] = await resComments.json();
+
+		return { blog, comments, favorite };
+	} catch (error) {
+		console.log(error);
 	}
-
-	return { blog, comments, favorite };
 }) satisfies PageLoad;
