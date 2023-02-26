@@ -21,21 +21,16 @@ export const load = (async ({ params, fetch }) => {
 			method: "GET"
 		});
 
-		console.log(resBlog);
-
 		const resComments = await fetch(`http://localhost:8080/api/comment/list/${params.id}`, {
 			credentials: "include",
 			method: "GET"
 		});
-
-		console.log(resComments);
 
 		const resFavorite = await fetch(`http://localhost:8080/api/favorite/single/${params.id}`, {
 			credentials: "include",
 			method: "GET"
 		});
 
-		console.log(resFavorite);
 		const favorite: Favorite = await resFavorite.json();
 		const blog: Blog = await resBlog.json();
 		const comments: Comment[] = await resComments.json();
